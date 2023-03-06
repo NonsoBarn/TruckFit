@@ -18,11 +18,7 @@ Link to Demo:
 https://truckfitnb.netlify.app/
 ## Lessons Learned
 
-learnt to use Redux to manage global state, such as the state of product data, and shopping cart data.
-
-learnt to use Cypress end-to-end testing framework to write automated tests.
-
-learnt about and got to implement the functions of React toast libraries such as Toastify.
+learnt to use Redux to manage global state, such as the state of product data, and shopping cart data, and Cypress end-to-end testing framework to write automated tests.
 
 
 ## Authors
