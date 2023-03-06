@@ -1,29 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import { UilStar } from "@iconscout/react-unicons";
-// import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/features/cartSlice";
 
 const Product = () => {
   const { id } = useParams();
 
-  // const [loading, setLoading] = useState(false);
-
   const dispatch = useDispatch();
-  const addProduct = (product) => {
-    dispatch(addToCart(product));
-  };
-
-  // useEffect(() => {
-  //   const getProduct = async () => {
-  //     setLoading(true);
-  //     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-  //     setProduct(await response.json());
-  //     setLoading(false);
-  //   };
-  //   getProduct();
-  // }, []);
 
   const { loading, product } = useFetch(
     `https://fakestoreapi.com/products/${id}`
@@ -77,7 +61,7 @@ const Product = () => {
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt={product.title}
-                className="lg:w-96 w-40 object-cover object-center rounded border border-gray-200"
+                className="lg:w-96 object-cover object-center rounded border border-gray-200"
                 src={product.image}
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">

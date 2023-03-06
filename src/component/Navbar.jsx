@@ -70,9 +70,9 @@ const Navbar = () => {
             {/* cart btn */}
             <NavLink
               to="/cart"
-              className="font-sans lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700"
+              className="font-sans lg:mt-0 lg:ml-6 align-middle text-black"
             >
-              <button href="#" role="button" className="relative flex">
+              <button role="button" className="relative flex">
                 <UilShoppingCart size={28} className="" />
                 <span className="absolute right-0 left-3 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-xs  leading-tight text-center">
                   {cartTotalQuantity}

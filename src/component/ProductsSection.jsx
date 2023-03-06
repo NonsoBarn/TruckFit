@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import useFetch from "./useFetch";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/features/cartSlice";
 
 const ProductsSection = () => {
   const { data, loading, filter, setFilter } = useFetch(
     "https://fakestoreapi.com/products/"
   );
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
 
   const Loading = () => {
     return (
@@ -85,34 +93,39 @@ const ProductsSection = () => {
           </button>
         </div>
         <div>
-          <div className="grid grid-cols-2 gap-y-10 gap-x-48 xl:px-20  sm:w-3/5 sm:px-5 sm:ml-40 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-48 xl:w-full w-1/2  ml-32 lg:w-4/5  lg:px-10  md:ml-30 lg:ml-28 xl:ml-0 place-items-center">
+          <div className="grid grid-cols-1 gap-y-10 gap-x-48 xl:px-20  sm:w-3/5 sm:px-5 sm:ml-40 lg:grid-cols-2 xl:grid-cols-3 xl:gap-x-48 xl:gap-y-10 xl:w-full w-1/2  ml-32 lg:w-4/5  lg:px-10  md:ml-30 lg:ml-28 xl:ml-0 place-items-center">
             {filter.map((product) => {
               return (
-                <Link
-                  to={`/products/${product.id}`}
-                  className="group border border-b-gray-700 w-48 p-9 shadow-md rounded-lg"
+                <div
+                  className="w-80 bg-white shadow-lg rounded"
                   key={product.id}
                 >
-                  <div>
-                    <div className=" ">
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        className="h-full w-full object-cover object-center group-hover:opacity-75"
-                      />
-                    </div>
-                    <h3 className="break-all  mt-4 text-lg text-gray-700">
-                      {product.title.substring(0, 12)}...
-                    </h3>
-                    <p className="mt-1 text-lg font-medium text-gray-900">
+                  <Link to={`/products/${product.id}`}>
+                    <img
+                      className="h-48 pl-20"
+                      src={product.image}
+                      alt={product.title}
+                    />
+                  </Link>
+                  <div className="p-4 flex flex-col items-center">
+                    <p className="text-gray-400 font-light text-xs text-center">
+                      {product.category}
+                    </p>
+                    <h1 className="text-gray-800 text-center mt-1">
+                      {product.title}
+                    </h1>
+                    <p class="text-center font-bold text-gray-800 mt-5">
                       ${product.price}
                     </p>
-
-                    {/* <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              Buy Now
-            </button> */}
+                    {/* add to cart */}
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
+                    >
+                      Add to Cart
+                    </button>
                   </div>
-                </Link>
+                </div>
               );
             })}
           </div>
