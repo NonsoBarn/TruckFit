@@ -78,7 +78,7 @@ const Cart = () => {
                 </h2>
               </div>
 
-              <div class="flow-root pt-9">
+              <div className="flow-root pt-9">
                 {cart.cartItems?.map((cartItem) => (
                   <ul className="-my-8">
                     <li className="flex flex-col space-y-3 py-10  text-left sm:flex-row sm:space-x-5 sm:space-y-0">
@@ -102,7 +102,7 @@ const Cart = () => {
 
                             <p
                               onClick={() => handleRemoveFromCart(cartItem)}
-                              class="mx-0 mt-1 mb-0 text-xs text-red-700  cursor-pointer font-bold"
+                              className="mx-0 mt-1 mb-0 text-xs text-red-700  cursor-pointer font-bold"
                             >
                               REMOVE
                             </p>
@@ -131,7 +131,7 @@ const Cart = () => {
                                 </div>
                                 <button
                                   onClick={() => handleIncreaseCart(cartItem)}
-                                  class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
+                                  className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white"
                                 >
                                   +
                                 </button>
