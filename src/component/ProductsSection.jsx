@@ -114,7 +114,7 @@ const ProductsSection = () => {
                     <h1 className="text-gray-800 text-center mt-1">
                       {product.title}
                     </h1>
-                    <p class="text-center font-bold text-gray-800 mt-5">
+                    <p className="text-center font-bold text-gray-800 mt-5">
                       ${product.price}
                     </p>
                     {/* add to cart */}
